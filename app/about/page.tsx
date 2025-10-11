@@ -72,17 +72,15 @@ function DeveloperInfo() {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">About Person Search</h1>
-        <ProjectOverview />
-        <DeveloperInfo />
-        <Button asChild variant="link" className="mt-4">
-          <Link href="/">
-            Back to Home
-          </Link>
-        </Button>
-      </main>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-8">About Person Search</h1>
+      <ProjectOverview />
+      <DeveloperInfo />
+      <Button asChild variant="link" className="mt-4">
+        <Link href="/">
+          Back to Home
+        </Link>
+      </Button>
     </div>
   )
 }
