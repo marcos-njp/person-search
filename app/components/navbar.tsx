@@ -5,8 +5,14 @@ import Link from 'next/link';
 import { Search, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from "@/components/ui/button";
+import { UserMenu } from './user-menu';
+import { Session } from 'next-auth';
 
-export default function Navbar() {
+interface NavbarProps {
+  session: Session | null;
+}
+
+export default function Navbar({ session }: NavbarProps) {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -26,6 +32,15 @@ export default function Navbar() {
             <Link href="/about" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               About
             </Link>
+            <Link href="/auth-setup" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              Auth Setup
+            </Link>
+            <Link href="/security" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              Security
+            </Link>
+            <Link href="/github" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              GitHub
+            </Link>
             <Button
               variant="ghost"
               size="icon"
@@ -35,6 +50,7 @@ export default function Navbar() {
               <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </Button>
+            <UserMenu session={session} />
           </div>
         </div>
       </div>

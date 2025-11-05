@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { auth } from "@/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,15 +18,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Person Search App",
-  description: "A simple search app to find people by name",
+  title: "Person Search App - OAuth Secured",
+  description: "A secure person search app with Google OAuth authentication",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth();
+
   return (
     <html lang="en" suppressHydrationWarning={true}>
     <body
@@ -39,7 +42,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
 
-        <Navbar />
+        <Navbar session={session} />
         <main className="flex-grow">
           {children}
         </main>
