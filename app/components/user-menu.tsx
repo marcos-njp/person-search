@@ -45,8 +45,9 @@ export function UserMenu({ session }: UserMenuProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <form action="/api/auth/signout" method="POST">
-            <button type="submit" className="flex w-full items-center">
+          <form action="/api/auth/signout" method="POST" className="w-full">
+            <input type="hidden" name="callbackUrl" value="/" />
+            <button type="submit" className="flex w-full items-center cursor-pointer">
               <LogOut className="mr-2 h-4 w-4" />
               <span>Sign out</span>
             </button>
