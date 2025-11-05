@@ -15,6 +15,10 @@ export default [
     ignores: [
       // Adjust path as needed; for example if it's "components/ui/*.tsx":
       "components/ui/*.tsx",
+      // Ignore Prisma generated files
+      "app/generated/**",
+      ".next/**",
+      "node_modules/**",
     ],
   },
   // 2) Spread in core Next.js + TypeScript configs
