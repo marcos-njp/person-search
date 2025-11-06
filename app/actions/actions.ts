@@ -6,6 +6,16 @@ import { revalidatePath } from 'next/cache'
 import { User, userSchema } from './schemas'
 import { cache } from 'react'
 import { prisma } from '@/lib/prisma'
+import { auth } from '@/auth'
+import { redirect } from 'next/navigation'
+
+async function requireAuth() {
+    const session = await auth()
+    if (!session?.user) {
+        redirect('/auth/signin')
+    }
+    return session
+}
 
 export async function searchUsers(query: string): Promise<User[]> {
     console.log('Searching users with query:', query)
@@ -35,6 +45,8 @@ export async function searchUsers(query: string): Promise<User[]> {
 }
 
 export async function addUser(data: Omit<User, 'id'>): Promise<User> {
+    await requireAuth()
+    
     const validatedData = userSchema.omit({ id: true }).parse(data)
     
     const newPerson = await prisma.person.create({
@@ -56,14 +68,18 @@ export async function addUser(data: Omit<User, 'id'>): Promise<User> {
 }
 
 export async function deleteUser(id: string): Promise<void> {
+    await requireAuth()
+    
     await prisma.person.delete({
         where: { id },
     })
     
     console.log(`User with id ${id} has been deleted.`)
     revalidatePath('/')
-}
-
+export async function updateUser(id: string, data: Partial<Omit<User, 'id'>>): Promise<User> {
+    await requireAuth()
+    
+    const updatedPerson = await prisma.person.update({
 export async function updateUser(id: string, data: Partial<Omit<User, 'id'>>): Promise<User> {
     const updatedPerson = await prisma.person.update({
         where: { id },
