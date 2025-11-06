@@ -76,11 +76,11 @@ export async function deleteUser(id: string): Promise<void> {
     
     console.log(`User with id ${id} has been deleted.`)
     revalidatePath('/')
+}
+
 export async function updateUser(id: string, data: Partial<Omit<User, 'id'>>): Promise<User> {
     await requireAuth()
     
-    const updatedPerson = await prisma.person.update({
-export async function updateUser(id: string, data: Partial<Omit<User, 'id'>>): Promise<User> {
     const updatedPerson = await prisma.person.update({
         where: { id },
         data: {
