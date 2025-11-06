@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { LogOut } from "lucide-react"
 import { Session } from "next-auth"
+import { signOut } from "next-auth/react"
 
 interface UserMenuProps {
   session: Session | null
@@ -23,6 +24,10 @@ export function UserMenu({ session }: UserMenuProps) {
   }
 
   const userInitial = session.user.name?.[0]?.toUpperCase() || session.user.email?.[0]?.toUpperCase() || "U"
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: "/auth/signin" })
+  }
 
   return (
     <DropdownMenu>
@@ -44,14 +49,9 @@ export function UserMenu({ session }: UserMenuProps) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-          <form action="/api/auth/signout" method="POST" className="w-full">
-            <input type="hidden" name="callbackUrl" value="/" />
-            <button type="submit" className="flex w-full items-center cursor-pointer">
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Sign out</span>
-            </button>
-          </form>
+        <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+          <LogOut className="mr-2 h-4 w-4" />
+          <span>Sign out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
