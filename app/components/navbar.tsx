@@ -32,6 +32,12 @@ export default function Navbar({ session }: NavbarProps) {
             <Link href="/about" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               About
             </Link>
+            <Link href="/mcp-setup" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              MCP Setup
+            </Link>
+            <Link href="/mcp-demo" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              MCP Demo
+            </Link>
             <Link href="/auth-setup" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Auth Setup
             </Link>
