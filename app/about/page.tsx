@@ -119,6 +119,32 @@ export default function AboutPage() {
         </CardContent>
       </Card>
 
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>MCP Integration</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="mb-4">
+            This application exposes a Model Context Protocol (MCP) integration that allows external AI agents
+            (for example, Claude Desktop) to perform Person CRUD operations against the same database used by the app.
+          </p>
+
+          <h3 className="font-semibold mb-2">How it works</h3>
+          <ol className="list-decimal list-inside space-y-2 mb-4 ml-2">
+            <li>Start a local MCP server (or use the deployed MCP endpoint).</li>
+            <li>Configure Claude Desktop to attach to the MCP server (instructions under <code className="rounded bg-muted px-1">/mcp-setup</code>).</li>
+            <li>Send natural-language commands to create, read, update, or delete Person records; the MCP server executes them via Prisma.</li>
+          </ol>
+
+          <div className="mt-4 p-4 bg-muted rounded-lg">
+            <p className="text-sm">
+              To get started quickly, visit the <Link href="/mcp-setup" className="text-primary hover:underline">MCP Setup</Link> page and then
+              the <Link href="/mcp-demo" className="text-primary hover:underline">MCP Demo</Link> page to see example interactions.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
       <DeveloperInfo />
       <Button asChild variant="link" className="mt-4">
         <Link href="/">

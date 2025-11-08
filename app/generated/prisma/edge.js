@@ -172,7 +172,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\ninomarcos\\Documents\\eca-projects\\person-search-basic\\app\\generated\\prisma",
+      "value": "C:\\Users\\ninomarcos\\Documents\\eca-projects-main\\person-search-basic\\app\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -186,7 +186,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\ninomarcos\\Documents\\eca-projects\\person-search-basic\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\ninomarcos\\Documents\\eca-projects-main\\person-search-basic\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
