@@ -1,27 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Info, Key, Settings, Shield } from "lucide-react"
+import { PageHeader } from '@/app/components/page-header'
+import { SectionCard } from '@/app/components/section-card'
+import { EnvVars, ConfigBox } from '@/app/components/feature-components'
+import { FileReferenceList } from '@/app/components/tech-components'
 
 export default function AuthSetupPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">OAuth Authentication Setup</h1>
-        <p className="text-lg text-muted-foreground">
-          Complete guide to the Google OAuth implementation in this application
-        </p>
-      </div>
+      <PageHeader 
+        title="OAuth Authentication Setup"
+        description="Complete guide to the Google OAuth implementation in this application"
+      />
 
       <div className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Settings className="h-5 w-5" />
-              Authentication Architecture
-            </CardTitle>
-            <CardDescription>How OAuth is implemented in this app</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        <SectionCard 
+          title="Authentication Architecture" 
+          description="How OAuth is implemented in this app"
+          icon={Settings}
+        >
+          <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Technology Stack</h3>
               <ul className="list-disc list-inside space-y-1 text-sm">
@@ -44,26 +42,23 @@ export default function AuthSetupPage() {
                 <li>Session is created and user is authenticated</li>
               </ol>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </SectionCard>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Key className="h-5 w-5" />
-              Configuration Details
-            </CardTitle>
-            <CardDescription>Environment variables and setup requirements</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
+        <SectionCard 
+          title="Configuration Details" 
+          description="Environment variables and setup requirements"
+          icon={Key}
+        >
+          <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Required Environment Variables</h3>
-              <div className="bg-muted p-4 rounded-lg font-mono text-sm space-y-1">
-                <div><span className="text-blue-500">AUTH_SECRET</span>=your-secret-key</div>
-                <div><span className="text-blue-500">GOOGLE_CLIENT_ID</span>=your-client-id</div>
-                <div><span className="text-blue-500">GOOGLE_CLIENT_SECRET</span>=your-client-secret</div>
-                <div><span className="text-blue-500">DATABASE_URL</span>=your-database-connection</div>
-              </div>
+              <EnvVars vars={[
+                { key: 'AUTH_SECRET', value: 'your-secret-key' },
+                { key: 'GOOGLE_CLIENT_ID', value: 'your-client-id' },
+                { key: 'GOOGLE_CLIENT_SECRET', value: 'your-client-secret' },
+                { key: 'DATABASE_URL', value: 'your-database-connection' }
+              ]} />
             </div>
 
             <Alert>
@@ -73,9 +68,8 @@ export default function AuthSetupPage() {
               </AlertDescription>
             </Alert>
 
-            <div>
-              <h3 className="font-semibold mb-2">Google Cloud Console Setup</h3>
-              <ol className="list-decimal list-inside space-y-2 text-sm">
+            <ConfigBox title="Google Cloud Console Setup">
+              <ol className="list-decimal list-inside space-y-2">
                 <li>Create project in Google Cloud Console</li>
                 <li>Enable Google OAuth API</li>
                 <li>Configure OAuth consent screen</li>
@@ -87,56 +81,48 @@ export default function AuthSetupPage() {
                   </ul>
                 </li>
               </ol>
-            </div>
-          </CardContent>
-        </Card>
+            </ConfigBox>
+          </div>
+        </SectionCard>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Shield className="h-5 w-5" />
-              Database Schema
-            </CardTitle>
-            <CardDescription>Auth.js tables managed by Prisma</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3 text-sm">
-              <div>
-                <h4 className="font-semibold">User Table</h4>
-                <p className="text-muted-foreground">Stores user profile information (id, name, email, image)</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">Account Table</h4>
-                <p className="text-muted-foreground">OAuth provider details and tokens (Google OAuth data)</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">Session Table</h4>
-                <p className="text-muted-foreground">Active user sessions with expiration timestamps</p>
-              </div>
-              <div>
-                <h4 className="font-semibold">VerificationToken Table</h4>
-                <p className="text-muted-foreground">Email verification tokens (if email auth is added)</p>
-              </div>
+        <SectionCard 
+          title="Database Schema" 
+          description="Auth.js tables managed by Prisma"
+          icon={Shield}
+        >
+          <div className="space-y-3 text-sm">
+            <div>
+              <h4 className="font-semibold">User Table</h4>
+              <p className="text-muted-foreground">Stores user profile information (id, name, email, image)</p>
             </div>
-          </CardContent>
-        </Card>
+            <div>
+              <h4 className="font-semibold">Account Table</h4>
+              <p className="text-muted-foreground">OAuth provider details and tokens (Google OAuth data)</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">Session Table</h4>
+              <p className="text-muted-foreground">Active user sessions with expiration timestamps</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">VerificationToken Table</h4>
+              <p className="text-muted-foreground">Email verification tokens (if email auth is added)</p>
+            </div>
+          </div>
+        </SectionCard>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Implementation Files</CardTitle>
-            <CardDescription>Key files in the authentication system</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-2 text-sm font-mono">
-              <div><code className="text-blue-500">auth.ts</code> - Auth.js configuration and exports</div>
-              <div><code className="text-blue-500">middleware.ts</code> - Route protection and redirects</div>
-              <div><code className="text-blue-500">app/api/auth/[...nextauth]/route.ts</code> - API handler</div>
-              <div><code className="text-blue-500">app/auth/signin/page.tsx</code> - Sign-in page</div>
-              <div><code className="text-blue-500">app/components/user-menu.tsx</code> - User dropdown menu</div>
-              <div><code className="text-blue-500">prisma/schema.prisma</code> - Database models</div>
-            </div>
-          </CardContent>
-        </Card>
+        <SectionCard 
+          title="Implementation Files" 
+          description="Key files in the authentication system"
+        >
+          <FileReferenceList files={[
+            { path: 'auth.ts', description: 'Auth.js configuration and exports' },
+            { path: 'middleware.ts', description: 'Route protection and redirects' },
+            { path: 'app/api/auth/[...nextauth]/route.ts', description: 'API handler' },
+            { path: 'app/auth/signin/page.tsx', description: 'Sign-in page' },
+            { path: 'app/components/user-menu.tsx', description: 'User dropdown menu' },
+            { path: 'prisma/schema.prisma', description: 'Database models' }
+          ]} />
+        </SectionCard>
       </div>
     </div>
   )
