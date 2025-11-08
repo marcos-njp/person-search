@@ -106,33 +106,70 @@ export default function AboutPage() {
         </div>
       </SectionCard>
 
-      <SectionCard title="About the Developer" className="mb-8">
+      <SectionCard title="About the Project" className="mb-8">
         <div className="space-y-4">
-          <p>
-            Hi, I&apos;m <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">Callum Bir</code>, the developer behind Person Search. I&apos;m passionate about creating 
-            efficient, user-friendly web applications using the latest technologies.
-          </p>
-          <p>
-            This project serves as a demonstration of my skills in Next.js, React, and modern frontend development.
-            I&apos;m always looking to learn and improve, so feel free to reach out with any questions or feedback!
-          </p>
+          <div className="p-4 bg-muted rounded-lg">
+            <p className="text-sm">
+              <strong>Original Project:</strong> Created by{' '}
+              <a 
+                href="https://www.linkedin.com/in/callumbir/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:underline font-semibold"
+              >
+                Callum Bir
+              </a>
+            </p>
+            <p className="text-sm mt-2">
+              <strong>Enhanced For:</strong> ECA Tech Bootcamp — AusBiz Consulting
+            </p>
+            <p className="text-sm mt-2">
+              <strong>Enhancements Include:</strong> MCP integration, local server implementation, 
+              refactored component architecture, comprehensive documentation, and Week 4 deliverables.
+            </p>
+          </div>
           
-          <div className="flex flex-wrap gap-4">
-            <Button asChild>
-              <Link href="https://www.linkedin.com/in/callumbir/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="https://github.com/gocallum" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" /> GitHub
-              </Link>
-            </Button>
-            <Button asChild variant="secondary">
-              <Link href="https://x.com/callumbir">
-                <Twitter className="mr-2 h-4 w-4" /> Contact Me
-              </Link>
-            </Button>
+          <div>
+            <h3 className="font-semibold mb-2">Original Author - Callum Bir</h3>
+            <p className="text-sm text-muted-foreground mb-3">
+              Callum Bir is the original creator of this Person Search application, demonstrating expertise in 
+              Next.js, React, and modern frontend development. This project serves as an excellent foundation 
+              for learning OAuth authentication and full-stack development.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="sm" variant="outline">
+                <Link href="https://www.linkedin.com/in/callumbir/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-4 w-4" /> Callum&apos;s LinkedIn
+                </Link>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <Link href="https://github.com/gocallum" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" /> Callum&apos;s GitHub
+                </Link>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <Link href="https://x.com/callumbir" target="_blank" rel="noopener noreferrer">
+                  <Twitter className="mr-2 h-4 w-4" /> Callum&apos;s X
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-2">Enhanced Version - ECA Bootcamp Project</h3>
+            <p className="text-sm text-muted-foreground">
+              This enhanced version was developed as part of the ECA Tech Bootcamp curriculum provided by{' '}
+              <a 
+                href="https://ausbizconsulting.com.au" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:underline font-semibold"
+              >
+                AusBiz Consulting
+              </a>
+              . Additional features include Model Context Protocol (MCP) integration, local MCP server implementation, 
+              reusable component architecture, and comprehensive setup documentation.
+            </p>
           </div>
         </div>
       </SectionCard>

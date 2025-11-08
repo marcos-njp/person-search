@@ -14,6 +14,23 @@ export default function GitHubPage() {
         <p className="text-lg text-muted-foreground">
           View the complete source code and OAuth implementation
         </p>
+        <div className="mt-4 p-4 bg-muted rounded-lg">
+          <p className="text-sm">
+            <strong>Original Project:</strong> Forked from{' '}
+            <a 
+              href="https://github.com/gocallum" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-primary hover:underline font-semibold"
+            >
+              Callum Bir&apos;s
+            </a>
+            {' '}Person Search application
+          </p>
+          <p className="text-sm mt-2">
+            <strong>Enhanced For:</strong> ECA Tech Bootcamp (AusBiz Consulting) — Week 4 MCP Integration
+          </p>
+        </div>
       </div>
 
       <div className="space-y-6">
@@ -167,7 +184,63 @@ export default function GitHubPage() {
                 <span className="text-green-500 font-bold">✓</span>
                 <span>Built-in documentation pages</span>
               </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 font-bold">✓</span>
+                <span>Model Context Protocol (MCP) server integration</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 font-bold">✓</span>
+                <span>Local MCP server with Prisma direct database access</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 font-bold">✓</span>
+                <span>Reusable component architecture (PageHeader, SectionCard, etc.)</span>
+              </li>
             </ul>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Project Attribution</CardTitle>
+            <CardDescription>Credits and acknowledgments</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div>
+              <strong className="text-sm">Original Author:</strong>
+              <p className="text-sm text-muted-foreground mt-1">
+                <a 
+                  href="https://github.com/gocallum" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-primary hover:underline"
+                >
+                  Callum Bir
+                </a>
+                {' '}— Created the foundational Person Search application with OAuth authentication
+              </p>
+            </div>
+            <div>
+              <strong className="text-sm">Enhanced Version:</strong>
+              <p className="text-sm text-muted-foreground mt-1">
+                ECA Tech Bootcamp Project (AusBiz Consulting) — Added MCP integration, local server, 
+                component refactoring, and comprehensive documentation
+              </p>
+            </div>
+            <div className="flex gap-3 mt-4">
+              <Button asChild size="sm" variant="outline">
+                <Link href="https://github.com/gocallum" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
+                  Original Repository
+                </Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link href="https://github.com/marcos-njp/person-search" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
+                  Enhanced Repository
+                </Link>
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
