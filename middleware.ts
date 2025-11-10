@@ -9,6 +9,7 @@ export function middleware(req: NextRequest) {
     req.nextUrl.pathname.startsWith("/about") ||
     req.nextUrl.pathname.startsWith("/auth-setup") ||
     req.nextUrl.pathname.startsWith("/security") ||
+    req.nextUrl.pathname.startsWith("/database") ||
     req.nextUrl.pathname.startsWith("/github")
 
   // Allow access to auth pages and public documentation pages

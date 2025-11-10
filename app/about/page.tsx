@@ -70,8 +70,9 @@ export default function AboutPage() {
 
           <div className="mt-4 p-4 bg-muted rounded-lg">
             <p className="text-sm">
-              <strong>Learn more:</strong> Visit the <Link href="/auth-setup" className="text-primary hover:underline">Auth Setup</Link> and{' '}
-              <Link href="/security" className="text-primary hover:underline">Security</Link> pages for detailed documentation.
+              <strong>Learn more:</strong> Visit the <Link href="/auth-setup" className="text-primary hover:underline">Auth Setup</Link>,{' '}
+              <Link href="/security" className="text-primary hover:underline">Security</Link>, and{' '}
+              <Link href="/database" className="text-primary hover:underline">Database</Link> pages for detailed documentation.
             </p>
           </div>
         </div>

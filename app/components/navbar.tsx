@@ -44,6 +44,9 @@ export default function Navbar({ session }: NavbarProps) {
             <Link href="/security" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               Security
             </Link>
+            <Link href="/database" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              Database
+            </Link>
             <Link href="/github" className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
               GitHub
             </Link>

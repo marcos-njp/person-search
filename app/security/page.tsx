@@ -43,6 +43,7 @@ export default function SecurityPage() {
                 { route: '/about', status: 'public' },
                 { route: '/auth-setup', status: 'public' },
                 { route: '/security', status: 'public' },
+                { route: '/database', status: 'public' },
                 { route: '/github', status: 'public' }
               ]} />
             </div>
@@ -52,8 +53,8 @@ export default function SecurityPage() {
                 <p><strong>Unauthenticated users:</strong></p>
                 <ul className="list-disc list-inside ml-4 space-y-1">
                   <li>Redirected to <code>/auth/signin</code> when accessing protected routes</li>
-                  <li>Can view documentation pages (about, auth-setup, security, github)</li>
-                  <li>Cannot access Person CRUD functionality</li>
+                  <li>Can view documentation pages (about, auth-setup, security, database, github)</li>
+                  <li>Cannot access Person CRUD functionality or MCP pages</li>
                 </ul>
                 <p className="mt-3"><strong>Authenticated users:</strong></p>
                 <ul className="list-disc list-inside ml-4 space-y-1">

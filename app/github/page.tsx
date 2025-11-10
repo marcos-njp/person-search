@@ -82,15 +82,17 @@ export default function GitHubPage() {
 
         <SectionCard 
           title="Key Implementation Files" 
-          description="OAuth authentication source code"
+          description="Core application source code and configuration"
           icon={FileCode}
         >
           <FileReferenceList files={[
             { path: 'auth.ts', description: 'Auth.js configuration' },
             { path: 'middleware.ts', description: 'Route protection' },
             { path: 'app/api/auth/[...nextauth]/route.ts', description: 'API handler' },
-            { path: 'prisma/schema.prisma', description: 'Database schema' },
-            { path: 'app/components/user-menu.tsx', description: 'User session UI' }
+            { path: 'prisma/schema.prisma', description: 'Database schema (Person & Auth models)' },
+            { path: 'app/actions/actions.ts', description: 'Server Actions for CRUD operations' },
+            { path: 'app/components/user-menu.tsx', description: 'User session UI' },
+            { path: 'lib/prisma.ts', description: 'Prisma client singleton' }
           ]} />
         </SectionCard>
 
@@ -128,13 +130,15 @@ export default function GitHubPage() {
             { text: 'Protected routes with middleware authentication' },
             { text: 'Full CRUD operations for Person management' },
             { text: 'Database-backed session management with Prisma' },
+            { text: 'PostgreSQL database with Neon serverless hosting' },
             { text: 'Responsive UI with dark mode support' },
             { text: 'Form validation with Zod schemas' },
             { text: 'Comprehensive security implementation' },
-            { text: 'Built-in documentation pages' },
+            { text: 'Built-in documentation pages (/about, /auth-setup, /security, /database, /github)' },
             { text: 'Model Context Protocol (MCP) server integration' },
             { text: 'Local MCP server with Prisma direct database access' },
-            { text: 'Reusable component architecture (PageHeader, SectionCard, etc.)' }
+            { text: 'Reusable component architecture (PageHeader, SectionCard, etc.)' },
+            { text: 'Database schema documentation with complete Prisma models' }
           ]} variant="success" />
         </SectionCard>
 
